@@ -10,6 +10,8 @@ export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const [domain, setDomain] = useState("");
   const [gender, setGender] = useState("");
+  const [uniqueGender, setUniqueGender] = useState([]);
+  const [uniqueDomain, setUniqueDomain] = useState([]);
   const [available, setAvailable] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -34,6 +36,14 @@ export default function Home() {
       if (response.status === 200) {
         setLoading(false);
         setUsersDetailsData(response?.data?.data);
+        const uniqueGenders = [
+          ...new Set(response?.data?.data?.map((item) => item.gender)),
+        ];
+        const uniqueDomain = [
+          ...new Set(response?.data?.data?.map((item) => item.domain)),
+        ];
+        setUniqueGender(uniqueGenders);
+        setUniqueGDomain(uniqueDomain);
       }
     } catch (error) {
       console.log(error);
@@ -51,6 +61,8 @@ export default function Home() {
   const setPage = (page) => {
     setCurrentPage(page);
   };
+
+  console.log(uniqueGender);
 
   return (
     <>
@@ -85,10 +97,12 @@ export default function Home() {
             }}
           >
             <option value="">All gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Bigender">Bigender</option>
-            <option value="Agender">Agender</option>
+            {uniqueGender &&
+              uniqueGender.map((item, index) => (
+                <option value={item} key={index}>
+                  {item}
+                </option>
+              ))}
           </select>
         </div>
 
