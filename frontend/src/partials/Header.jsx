@@ -51,7 +51,7 @@ export default function Header() {
   return (
     <div className="sticky top-0 z-40 w-full bg-white">
       <div className=" flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0 mx-20">
-        <div class="flex items-center justify-start gap-x-2 sm:gap-x-0">
+        <div className="flex items-center justify-start gap-x-2 sm:gap-x-0">
           <button
             type="button"
             aria-haspopup="dialog"
@@ -67,10 +67,10 @@ export default function Header() {
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="md:hidden h-6 w-6 border-2 border-primary rounded-sm"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="md:hidden h-6 w-6 border-2 border-primary rounded-sm"
             >
               <polyline points="9 18 15 12 9 6"></polyline>
             </svg>
@@ -80,24 +80,24 @@ export default function Header() {
             aria-label="Main"
             data-orientation="horizontal"
             dir="ltr"
-            class="relative z-10 max-w-max flex-1 items-center justify-center hidden md:flex"
+            className="relative z-10 max-w-max flex-1 items-center justify-center hidden md:flex"
           >
             <div className="relative">
               <ul
                 data-orientation="horizontal"
-                class="group flex flex-1 list-none items-center justify-center space-x-1"
+                className="group flex flex-1 list-none items-center justify-center space-x-1"
                 dir="ltr"
               >
                 <li>
                   <Link
                     to="/"
-                    class="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                    className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
                   >
                     <svg
                       width ="40px"
                       height="40px"
                       viewBox="0 0 1024 1024"
-                      class="icon"
+                      className="icon"
                       version="1.1"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -168,7 +168,7 @@ export default function Header() {
                 <li>
                   <Link
                     to="/"
-                    class="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-[#f1f5f9] hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                    className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-[#f1f5f9] hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
                   >
                     Home
                   </Link>
@@ -177,14 +177,14 @@ export default function Header() {
                 <li>
                   <Link
                     to="/teams"
-                    class="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-[#f1f5f9] hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                    className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-[#f1f5f9] hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
                   >
                     Teams
                   </Link>
                 </li>
               </ul>
             </div>
-            <div class="absolute left-0 top-full flex justify-center"></div>
+            <div className="absolute left-0 top-full flex justify-center"></div>
           </nav>
         </div>
 
@@ -203,16 +203,16 @@ export default function Header() {
               aria-describedby="radix-:R5b6t5aH2:"
               aria-labelledby="radix-:R5b6t5aH1:"
               data-state="open"
-              class="fixed z-50 gap-4 bg-background bg-white p-6 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500 inset-y-0 left-0 h-full border-r data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-sm w-[70%] flex flex-col"
+              className="fixed z-50 gap-4 bg-background bg-white p-6 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500 inset-y-0 left-0 h-full border-r data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-sm w-[70%] flex flex-col"
               tabindex="-1"
               //style="pointer-events: auto;"
             >
-              <div class="flex flex-col space-y-2 text-center sm:text-left">
+              <div className="flex flex-col space-y-2 text-center sm:text-left">
                 <h2
                   id="radix-:R5b6t5aH1:"
-                  class="text-lg font-semibold text-foreground"
+                  className="text-lg font-semibold text-foreground"
                 >
-                  <div class="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2">
                     <svg
                       width="100%"
                       height="100%"
@@ -221,7 +221,7 @@ export default function Header() {
                       xmlns="http://www.w3.org/2000/svg"
                       xmlns:xlink="http://www.w3.org/1999/xlink"
                       xml:space="preserve"
-                      class="w-6 fill-primary mt-[2px]"
+                      className="w-6 fill-primary mt-[2px]"
                     >
                       <g transform="matrix(1,0,0,1,-56.9406,-284.971)">
                         <g>
@@ -251,60 +251,60 @@ export default function Header() {
                       </g>
                     </svg>
                     <a href="/">
-                      <h1 class="font-bold text-md">Zap!</h1>
+                      <h1 className="font-bold text-md">Zap!</h1>
                     </a>
                   </div>
                 </h2>
                 <p
                   id="radix-:R5b6t5aH2:"
-                  class="text-sm text-muted-foreground"
+                  className="text-sm text-muted-foreground"
                 ></p>
               </div>
-              <nav class="flex flex-col gap-3 ml-8">
+              <nav className="flex flex-col gap-3 ml-8">
                 <a
-                  class="flex items-center text-md text-primary font-normal"
+                  className="flex items-center text-md text-primary font-normal"
                   href="/home"
                 >
                   Home
                 </a>
                 <a
-                  class="flex items-center text-md text-primary font-normal"
+                  className="flex items-center text-md text-primary font-normal"
                   href="/trade"
                 >
                   Trade
                 </a>
                 <a
-                  class="flex items-center text-md text-primary font-normal"
+                  className="flex items-center text-md text-primary font-normal"
                   href="/games"
                 >
                   Games
                 </a>
                 <a
-                  class="flex items-center text-md text-primary font-normal"
+                  className="flex items-center text-md text-primary font-normal"
                   href="/private-servers"
                 >
                   Private Servers
                 </a>
                 <a
-                  class="flex items-center text-md text-primary font-normal"
+                  className="flex items-center text-md text-primary font-normal"
                   href="/leaderboard"
                 >
                   Leaderboard
                 </a>
                 <a
-                  class="flex items-center text-md text-primary font-normal"
+                  className="flex items-center text-md text-primary font-normal"
                   href="/blox-fruits-stock"
                 >
                   Blox Fruits Stock
                 </a>
                 <a
-                  class="flex items-center text-md text-primary font-normal"
+                  className="flex items-center text-md text-primary font-normal"
                   href="/tutorial"
                 >
                   Tutorial
                 </a>
                 <a
-                  class="flex items-center text-md text-primary font-normal"
+                  className="flex items-center text-md text-primary font-normal"
                   href="/search"
                 >
                   Search
@@ -312,80 +312,80 @@ export default function Header() {
                 <a
                   target="_blank"
                   rel="noreferrer"
-                  class="flex items-center text-md text-primary font-normal"
+                  className="flex items-center text-md text-primary font-normal"
                   href="https://discord.gg/zap-gg-trading-community-1147592830609535049"
                 >
                   Discord
-                  <div class="ml-2 pl-2 pr-2 bg-accent rounded-full flex flex-row items-center text-xs">
-                    <div class="mr-1 flex-initial bg-green-500 rounded-full w-1 h-1"></div>
+                  <div className="ml-2 pl-2 pr-2 bg-accent rounded-full flex flex-row items-center text-xs">
+                    <div className="mr-1 flex-initial bg-green-500 rounded-full w-1 h-1"></div>
                     5630 online
                   </div>
                 </a>
                 <a
                   target="_blank"
                   rel="noreferrer"
-                  class="flex items-center text-md text-primary font-normal"
+                  className="flex items-center text-md text-primary font-normal"
                   href="https://blog.zap.gg"
                 >
                   Blog
                 </a>
               </nav>
-              <nav class="flex flex-col gap-3 ml-8 mt-6">
+              <nav className="flex flex-col gap-3 ml-8 mt-6">
                 <a
-                  class="flex items-center text-md text-muted-foreground font-normal"
+                  className="flex items-center text-md text-muted-foreground font-normal"
                   href="/tutorial"
                 >
                   Tutorial
                 </a>
                 <a
-                  class="flex items-center text-md text-muted-foreground font-normal"
+                  className="flex items-center text-md text-muted-foreground font-normal"
                   href="/faq"
                 >
                   FAQ
                 </a>
                 <a
-                  class="flex items-center text-md text-muted-foreground font-normal"
+                  className="flex items-center text-md text-muted-foreground font-normal"
                   href="https://blog.zap.gg"
                 >
                   Blog
                 </a>
                 <a
-                  class="flex items-center text-md text-muted-foreground font-normal"
+                  className="flex items-center text-md text-muted-foreground font-normal"
                   href="/sponsors"
                 >
                   Sponsors
                 </a>
                 <a
-                  class="flex items-center text-md text-muted-foreground font-normal"
+                  className="flex items-center text-md text-muted-foreground font-normal"
                   href="/contact"
                 >
                   Contact Us
                 </a>
                 <a
-                  class="flex items-center text-md text-muted-foreground font-normal"
+                  className="flex items-center text-md text-muted-foreground font-normal"
                   href="/privacy"
                 >
                   Privacy Policy
                 </a>
                 <a
-                  class="flex items-center text-md text-muted-foreground font-normal"
+                  className="flex items-center text-md text-muted-foreground font-normal"
                   href="/terms"
                 >
                   Terms of Service
                 </a>
               </nav>
-              <div class="mt-auto flex justify-center space-x-10">
+              <div className="mt-auto flex justify-center space-x-10">
                 <a
                   href="https://twitter.com/realZapGG"
-                  class="text-muted-foreground hover:text-primary"
+                  className="text-muted-foreground hover:text-primary"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <span class="sr-only">Twitter</span>
+                  <span className="sr-only">Twitter</span>
                   <svg
                     fill="#1DA1F2"
                     viewBox="0 0 24 24"
-                    class="h-6 w-6"
+                    className="h-6 w-6"
                     aria-hidden="true"
                   >
                     <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
@@ -393,17 +393,17 @@ export default function Header() {
                 </a>
                 <a
                   href="https://discord.gg/zap-gg-trading-community-1147592830609535049"
-                  class="text-muted-foreground hover:text-primary"
+                  className="text-muted-foreground hover:text-primary"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <span class="sr-only">Discord</span>
+                  <span className="sr-only">Discord</span>
                   <svg
                     fill="#5865F2"
                     viewBox="0 0 16 16"
                     height="1em"
                     width="1em"
-                    class="h-6 w-6"
+                    className="h-6 w-6"
                     aria-hidden="true"
                   >
                     <path d="M13.545 2.907a13.227 13.227 0 00-3.257-1.011.05.05 0 00-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 00-3.658 0 8.258 8.258 0 00-.412-.833.051.051 0 00-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 00-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 003.995 2.02.05.05 0 00.056-.019c.308-.42.582-.863.818-1.329a.05.05 0 00-.01-.059.051.051 0 00-.018-.011 8.875 8.875 0 01-1.248-.595.05.05 0 01-.02-.066.051.051 0 01.015-.019c.084-.063.168-.129.248-.195a.05.05 0 01.051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 01.053.007c.08.066.164.132.248.195a.051.051 0 01-.004.085 8.254 8.254 0 01-1.249.594.05.05 0 00-.03.03.052.052 0 00.003.041c.24.465.515.909.817 1.329a.05.05 0 00.056.019 13.235 13.235 0 004.001-2.02.049.049 0 00.021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 00-.02-.019zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612z"></path>
@@ -411,17 +411,17 @@ export default function Header() {
                 </a>
                 <a
                   href="https://tiktok.com/@realzapgg"
-                  class="text-muted-foreground hover:text-primary"
+                  className="text-muted-foreground hover:text-primary"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <span class="sr-only">TikTok</span>
+                  <span className="sr-only">TikTok</span>
                   <svg
                     viewBox="0 0 24 24"
                     fill="#ff0050"
                     height="1em"
                     width="1em"
-                    class="h-6 w-6"
+                    className="h-6 w-6"
                     aria-hidden="true"
                   >
                     <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"></path>
@@ -430,7 +430,7 @@ export default function Header() {
               </div>
               <button
                 type="button"
-                class="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary"
+                className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary"
                 onClick={() => setIsHamburger(false)}
               >
                 <svg
@@ -440,15 +440,15 @@ export default function Header() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="h-4 w-4"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-4 w-4"
                 >
                   <path d="M18 6 6 18"></path>
                   <path d="m6 6 12 12"></path>
                 </svg>
-                <span class="sr-only">Close</span>
+                <span className="sr-only">Close</span>
               </button>
             </div>
           </>
@@ -456,10 +456,10 @@ export default function Header() {
       </div>
 
       {isLogin ? (
-        <div class={`fixed inset-0 z-50 flex justify-center items-center`}>
+        <div className={`fixed inset-0 z-50 flex justify-center items-center`}>
           <div
             data-state="open"
-            class="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm transition-all duration-100 data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:fade-in"
+            className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm transition-all duration-100 data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:fade-in"
             data-aria-hidden="true"
             aria-hidden="true"
             style={{ pointerEvents: "auto" }}
@@ -476,7 +476,7 @@ export default function Header() {
             tabindex="-1"
             style={{ pointerEvents: "auto" }}
           >
-            <div class="flex-col space-y-1.5 text-center sm:text-left flex items-center justify-center gap-y-3">
+            <div className="flex-col space-y-1.5 text-center sm:text-left flex items-center justify-center gap-y-3">
               <img
                 alt="Zap"
                 loading="lazy"
@@ -484,82 +484,82 @@ export default function Header() {
                 height="100"
                 decoding="async"
                 data-nimg="1"
-                class="rounded-full"
+                className="rounded-full"
                 src="https://t4.rbxcdn.com/30DAY-AvatarHeadshot-57748977B3F40C1CE63A075CD52FBEE4-Png"
                 //style="color: transparent;"
                 style={{ color: "transparent" }}
               />
               <h2
                 id="radix-:r4:"
-                class="font-semibold tracking-tight text-3xl mt-auto text-center"
+                className="font-semibold tracking-tight text-3xl mt-auto text-center"
               >
                 Sign in to Zap
               </h2>
               <p
                 id="radix-:r5:"
-                class="text-sm text-muted-foreground text-center"
+                className="text-sm text-muted-foreground text-center"
               >
                 Zap uses your Roblox username, ID, and avatar to create your
                 profile. We will never ask for your password.
               </p>
             </div>
-            <div class="flex flex-col gap-y-6 w-full">
+            <div className="flex flex-col gap-y-6 w-full">
               <div
                 data-orientation="horizontal"
                 role="none"
-                class="shrink-0 bg-border h-[1px] w-full !mt-4"
+                className="shrink-0 bg-border h-[1px] w-full !mt-4"
               ></div>
-              <div class="flex flex-col justify-start space-y-2">
-                <div class="flex items-center space-x-2">
+              <div className="flex flex-col justify-start space-y-2">
+                <div className="flex items-center space-x-2">
                   <button
                     type="button"
                     role="checkbox"
                     aria-checked="false"
                     data-state="unchecked"
                     value="on"
-                    class="peer h-4 w-4 shrink-0 rounded-sm border border-black ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+                    className="peer h-4 w-4 shrink-0 rounded-sm border border-black ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
                     id="13-plus"
                   ></button>
                   <label
                     for="13-plus"
-                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                   >
                     I am 13 years of age or older
                   </label>
                 </div>
-                <div class="flex items-center space-x-2">
+                <div className="flex items-center space-x-2">
                   <button
                     type="button"
                     role="checkbox"
                     aria-checked="false"
                     data-state="unchecked"
                     value="on"
-                    class="peer h-4 w-4 shrink-0 rounded-sm border border-black ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+                    className="peer h-4 w-4 shrink-0 rounded-sm border border-black ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
                     id="tos"
                   ></button>
                   <label
                     for="tos"
-                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                   >
                     I agree to the{" "}
                     <a
                       href="https://zap.gg/terms"
                       target="_blank"
                       rel="noreferrer"
-                      class="text-blue-500"
+                      className="text-blue-500"
                     >
                       Terms of Service
                     </a>
                   </label>
                 </div>
               </div>
-              <div class="text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background h-9 px-3 rounded-md flex items-center justify-center space-x-2 py-6 hover:cursor-not-allowed bg-muted text-muted-foreground hover:bg-muted bg-[#f1f5f9]">
+              <div className="text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background h-9 px-3 rounded-md flex items-center justify-center space-x-2 py-6 hover:cursor-not-allowed bg-muted text-muted-foreground hover:bg-muted bg-[#f1f5f9]">
                 <span>Link Roblox Account</span>
               </div>
             </div>
             <button
               type="button"
-              class="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
+              className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
               onClick={() => setIsLogin(false)}
             >
               <svg
@@ -569,15 +569,15 @@ export default function Header() {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="h-4 w-4"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-4 w-4"
               >
                 <path d="M18 6 6 18"></path>
                 <path d="m6 6 12 12"></path>
               </svg>
-              <span class="sr-only">Close</span>
+              <span className="sr-only">Close</span>
             </button>
           </div>
         </div>
