@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 import Home from "./pages/Home";
+import Teams from "./pages/Teams";
 
 function App() {
   const location = useLocation();
@@ -15,6 +16,7 @@ function App() {
   return (
     <Routes>
       <Route exact path="/" element={<Home />} />
+      <Route exact path="/teams" element={<Teams />} />
     </Routes>
   );
 }

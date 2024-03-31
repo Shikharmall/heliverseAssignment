@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Header from "../partials/Header";
 
 export default function Home() {
   const [usersData, setUsersData] = useState([
@@ -6,6 +7,9 @@ export default function Home() {
   ]);
   return (
     <>
+      
+      <Header />
+      
       <div className="flex flex-wrap items-center justify-end py-4 px-4 bg-white dark:bg-gray-800 rounded-tl-lg rounded-tr-lg">
         <div className="relative p-2 box-border">
           <div className="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none">
@@ -199,7 +203,7 @@ export default function Home() {
           <p>No users found.</p>
         </div>
       )}
-      
+
       {/*{societydata.length > 0 ? (
         <a className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
           {currentPage} of {Math.ceil(totalPosts / postsPerPage)}
