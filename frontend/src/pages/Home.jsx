@@ -233,6 +233,29 @@ export default function Home() {
               <p>No users found.</p>
             </div>
           )}
+
+          {
+            /*
+
+            router.get('/items', async (req, res) => {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const filter = req.query.filter || {};
+
+    try {
+        const items = await Item.find(filter)
+            .limit(limit)
+            .skip((page - 1) * limit)
+            .exec();
+
+        res.json(items);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+            
+            */
+          }
         </>
       )}
 
