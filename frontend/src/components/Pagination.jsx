@@ -60,10 +60,10 @@ export default function Pagination({ usersData, currentPage, setPage }) {
             <li>
               {usersData.length > 0 ? (
                 <>
-                  {currentPage === Math.ceil(usersData.length / 20) ? (
+                  {currentPage === Math.ceil(1000 / 20) ? (
                     <a
                       className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover-bg-gray-100 hover-text-gray-700 dark-bg-gray-800 dark-border-gray-700 dark-text-gray-400 dark-hover-bg-gray-700 dark-hover-text-white cursor-pointer"
-                      onClick={() => setPage(currentPage + 1)}
+                      //onClick={() => setPage(currentPage + 1)}
                     >
                       Next
                     </a>
