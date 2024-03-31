@@ -68,8 +68,14 @@ const getUser = async (req, res) => {
 // Retrieve all users with pagination support.
 
 const getAllUser = async (req, res) => {
+  const page = parseInt(req.query.page) || 1;
+  const limit = 20;
+
   try {
-    const userData = await User.find();
+    const userData = await User.find()
+      .limit(limit)
+      .skip((page - 1) * limit)
+      .exec();
 
     return res.status(200).json({ status: "success", data: userData });
   } catch (error) {
