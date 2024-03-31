@@ -95,40 +95,10 @@ const getAllUser = async (req, res) => {
       .limit(limit)
       .skip((page - 1) * limit)
       .exec();
+    const userDataCount = await User.find(filter)
+      .countDocuments();
 
-    return res.status(200).json({ status: "success", data: userData });
-  } catch (error) {
-    res.status(500).json({ status: "failed", message: error.message });
-  }
-};
-
-// Retrieve all users count with pagination support & filter.
-
-const getAllUserCount = async (req, res) => {
-  const { domain, gender, available } = req.query; // Assuming you have parameters parameter1 and parameter2
-
-  const filter = {};
-
-  if (domain) {
-    filter.domain = domain;
-  }
-
-  if (gender) {
-    filter.gender = gender;
-  }
-
-  if (available) {
-    filter.available = available;
-  }
-
-  if (available) {
-    filter.available = available;
-  }
-
-  try {
-    const userData = await User.find(filter).countDocuments();
-
-    return res.status(200).json({ status: "success", data: userData });
+    return res.status(200).json({ status: "success", data: userData , count: userDataCount });
   } catch (error) {
     res.status(500).json({ status: "failed", message: error.message });
   }
@@ -208,7 +178,6 @@ module.exports = {
   getUser,
   getAllUser,
   getAllUserDetails,
-  getAllUserCount,
   updateUser,
   deleteUser,
 };

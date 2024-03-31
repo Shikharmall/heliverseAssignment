@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Header from "../partials/Header";
-import { getAllUsersAPI, getAllUsersCountAPI, getAllUsersDetailsAPI } from "../api/UserAPI";
+import { getAllUsersAPI, getAllUsersDetailsAPI } from "../api/UserAPI";
 import Pagination from "../components/Pagination";
 import UserData from "../components/UserData";
 
 export default function Home() {
   const [usersData, setUsersData] = useState([]);
+  const [search, setSearch] = useState("");
   const [usersDataCount, setUsersDataCount] = useState(0);
   const [usersDetailsData, setUsersDetailsData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -20,24 +21,11 @@ export default function Home() {
     setLoading(true);
     try {
       const response = await getAllUsersAPI(page, domain, gender, available);
-      //console.log(response);
+
       if (response.status === 200) {
         setLoading(false);
         setUsersData(response?.data?.data);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const getAllUsersCountFunc = async (page, domain, gender, available) => {
-    setLoading(true);
-    try {
-      const response = await getAllUsersCountAPI(page, domain, gender, available);
-      //console.log(response);
-      if (response.status === 200) {
-        setLoading(false);
-        setUsersDataCount(response?.data?.data);
+        setUsersDataCount(response?.data?.count);
       }
     } catch (error) {
       console.log(error);
@@ -68,7 +56,6 @@ export default function Home() {
 
   useEffect(() => {
     getAllUsersFunc(currentPage, domain, gender, available);
-    getAllUsersCountFunc(currentPage, domain, gender, available);
   }, [currentPage, domain, gender, available]);
 
   useEffect(() => {
@@ -78,8 +65,6 @@ export default function Home() {
   const setPage = (page) => {
     setCurrentPage(page);
   };
-
-  console.log(uniqueGender);
 
   return (
     <>
@@ -92,6 +77,7 @@ export default function Home() {
             value={domain}
             onChange={(e) => {
               setDomain(e.target.value);
+              setCurrentPage(1);
             }}
           >
             <option value="">All domain</option>
@@ -111,6 +97,7 @@ export default function Home() {
             value={gender}
             onChange={(e) => {
               setGender(e.target.value);
+              setCurrentPage(1);
             }}
           >
             <option value="">All gender</option>
@@ -129,6 +116,7 @@ export default function Home() {
             value={available}
             onChange={(e) => {
               setAvailable(e.target.value);
+              setCurrentPage(1);
             }}
           >
             <option value="">All avab/unavab</option>
@@ -176,7 +164,6 @@ export default function Home() {
 
       <Pagination
         currentPage={currentPage}
-        usersData={usersData}
         setPage={setPage}
         usersDataCount={usersDataCount}
       />

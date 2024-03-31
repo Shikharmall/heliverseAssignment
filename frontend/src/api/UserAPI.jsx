@@ -18,34 +18,15 @@ export const getAllUsersAPI = async (page, domain, gender, available) => {
   }
 };
 
-// API for getting all users count details with pagination and filter
-
-export const getAllUsersCountAPI = async (page, domain, gender, available) => {
-  try {
-    let result = await axios(
-      `${API_URL_BASE}/api/usersCount?domain=${domain}&gender=${gender}&available=${available}`,
-      {
-        method: "GET",
-        //withCredentials: true,
-      }
-    );
-    return result;
-  } catch (error) {
-    return error;
-  }
-};
 
 // API for getting all users details
 
 export const getAllUsersDetailsAPI = async () => {
   try {
-    let result = await axios(
-      `${API_URL_BASE}/api/usersAll`,
-      {
-        method: "GET",
-        //withCredentials: true,
-      }
-    );
+    let result = await axios(`${API_URL_BASE}/api/usersAll`, {
+      method: "GET",
+      //withCredentials: true,
+    });
     return result;
   } catch (error) {
     return error;
