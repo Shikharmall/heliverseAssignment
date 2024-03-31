@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function Pagination({ usersData, currentPage, setPage }) {
-  const [total,setTotal] = useState(1000);
+export default function Pagination({ usersData, currentPage, setPage, usersDetailsData }) {
   return (
     <>
       <div className="flex justify-end px-20 my-6">
         {usersData.length > 0 ? (
           <a className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-            {currentPage} of {Math.ceil(total / 20)}
+            {currentPage} of {Math.ceil(usersDetailsData?.length / 20)}
           </a>
         ) : (
           <a className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
@@ -24,7 +23,7 @@ export default function Pagination({ usersData, currentPage, setPage }) {
                     <a
                       className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover-text-gray-700 dark-bg-gray-800 dark-border-gray-700 dark-text-gray-400 dark-hover-bg-gray-700 dark-hover-text-white cursor-pointer"
                       onClick={() =>
-                        setPage(total/20)
+                        setPage(usersDetailsData?.length/20)
                       }
                     >
                       Previous
@@ -60,7 +59,7 @@ export default function Pagination({ usersData, currentPage, setPage }) {
             <li>
               {usersData.length > 0 ? (
                 <>
-                  {currentPage === Math.ceil(total / 20) ? (
+                  {currentPage === Math.ceil(usersDetailsData?.length / 20) ? (
                     <a
                       className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover-bg-gray-100 hover-text-gray-700 dark-bg-gray-800 dark-border-gray-700 dark-text-gray-400 dark-hover-bg-gray-700 dark-hover-text-white cursor-pointer"
                       onClick={() => setPage(1)}

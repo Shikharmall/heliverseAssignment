@@ -65,14 +65,29 @@ const getUser = async (req, res) => {
   }
 };
 
-// Retrieve all users with pagination support.
+// Retrieve all users with pagination support & filter.
 
 const getAllUser = async (req, res) => {
   const page = req.query.page;
   const limit = 20;
+  const { domain, gender, available } = req.query; // Assuming you have parameters parameter1 and parameter2
+
+  const filter = {};
+
+  if (domain) {
+    filter.domain = domain;
+  }
+
+  if (gender) {
+    filter.gender = gender;
+  }
+
+  if (available) {
+    filter.available = available;
+  }
 
   try {
-    const userData = await User.find()
+    const userData = await User.find(filter)
       .limit(limit)
       .skip((page - 1) * limit)
       .exec();
@@ -82,6 +97,39 @@ const getAllUser = async (req, res) => {
     res.status(500).json({ status: "failed", message: error.message });
   }
 };
+
+// Retrieve all users without pagination support & filter.
+
+const getAllUserDetails = async (req, res) => {
+  try {
+    const userData = await User.find();
+
+    return res.status(200).json({ status: "success", data: userData });
+  } catch (error) {
+    res.status(500).json({ status: "failed", message: error.message });
+  }
+};
+
+/*
+
+  router.get('/items', async (req, res) => {
+const page = parseInt(req.query.page) || 1;
+const limit = parseInt(req.query.limit) || 10;
+const filter = req.query.filter || {};
+
+try {
+const items = await Item.find(filter)
+  .limit(limit)
+  .skip((page - 1) * limit)
+  .exec();
+
+res.json(items);
+} catch (err) {
+res.status(500).json({ message: err.message });
+}
+});
+  
+  */
 
 // Update an existing user.
 
@@ -144,6 +192,7 @@ module.exports = {
   createUser,
   getUser,
   getAllUser,
+  getAllUserDetails,
   updateUser,
   deleteUser,
 };

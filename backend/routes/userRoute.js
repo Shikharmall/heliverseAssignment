@@ -7,9 +7,13 @@ const bodyParser = require("body-parser");
 user_route.use(bodyParser.json());
 user_route.use(bodyParser.urlencoded({ extended: true }));
 
-// Retrieve all users with pagination support.
+// Retrieve all users with pagination support & filter.
 
 user_route.get("/users", userController.getAllUser);
+
+// Retrieve all users without pagination support & filter.
+
+user_route.get("/usersAll", userController.getAllUserDetails);
 
 // Retrieve a specific user by ID.
 
