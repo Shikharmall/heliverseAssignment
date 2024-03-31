@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function UserData({usersData}) {
+export default function UserData({ usersData }) {
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full px-20">
@@ -27,9 +27,7 @@ export default function UserData({usersData}) {
                       </p>
                     </div>
                   </div>
-                  <p
-                    className="mt-2 text-sm text-gray-800 line-clamp-1"
-                  >
+                  <p className="mt-2 text-sm text-gray-800">
                     {item.email}
                   </p>
                 </div>
@@ -76,7 +74,7 @@ export default function UserData({usersData}) {
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <span className="mt-2 xl:mt-0">{item.domain}</span>
+                    <span className="mt-2 xl:mt-0 line-clamp-1">{item.domain}</span>
                   </p>
                   <p className="inline-flex flex-col xl:flex-row xl:items-center text-white">
                     {item.available ? (
@@ -90,11 +88,21 @@ export default function UserData({usersData}) {
                     )}
                   </p>
                   <p className="inline-flex flex-col xl:flex-row xl:items-center text-white">
-                    <span className="mt-2 xl:mt-0 bg-blue-500 px-4 rounded-lg py-2 cursor-pointer"
-                    title="Click to add user to created team."
-                    >
-                      Add to team
-                    </span>
+                    {item.available ? (
+                      <span
+                        className="mt-2 xl:mt-0 bg-blue-500 px-4 rounded-lg py-2 cursor-pointer"
+                        title="Click to add user to created team."
+                      >
+                        Add to team
+                      </span>
+                    ) : (
+                      <span
+                        className="mt-2 xl:mt-0 bg-blue-500 px-4 rounded-lg py-2"
+                        title="Click to add user to created team."
+                      >
+                        Add to team
+                      </span>
+                    )}
                   </p>
                 </div>
               </div>

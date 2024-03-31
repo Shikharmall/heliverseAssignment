@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Header from "../partials/Header";
-import { getAllUsersAPI, getAllUsersDetailsAPI } from "../api/UserAPI";
+import { getAllUsersAPI, getAllUsersCountAPI, getAllUsersDetailsAPI } from "../api/UserAPI";
 import Pagination from "../components/Pagination";
 import UserData from "../components/UserData";
 
 export default function Home() {
   const [usersData, setUsersData] = useState([]);
+  const [usersDataCount, setUsersDataCount] = useState(0);
   const [usersDetailsData, setUsersDetailsData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [domain, setDomain] = useState("");
@@ -28,6 +29,21 @@ export default function Home() {
       console.log(error);
     }
   };
+
+  const getAllUsersCountFunc = async (page, domain, gender, available) => {
+    setLoading(true);
+    try {
+      const response = await getAllUsersCountAPI(page, domain, gender, available);
+      //console.log(response);
+      if (response.status === 200) {
+        setLoading(false);
+        setUsersDataCount(response?.data?.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const getAllUsersDetailsFunc = async () => {
     setLoading(true);
     try {
@@ -43,7 +59,7 @@ export default function Home() {
           ...new Set(response?.data?.data?.map((item) => item.domain)),
         ];
         setUniqueGender(uniqueGenders);
-        setUniqueGDomain(uniqueDomain);
+        setUniqueDomain(uniqueDomain);
       }
     } catch (error) {
       console.log(error);
@@ -52,6 +68,7 @@ export default function Home() {
 
   useEffect(() => {
     getAllUsersFunc(currentPage, domain, gender, available);
+    getAllUsersCountFunc(currentPage, domain, gender, available);
   }, [currentPage, domain, gender, available]);
 
   useEffect(() => {
@@ -68,7 +85,7 @@ export default function Home() {
     <>
       <Header />
 
-      <div className="flex flex-wrap items-center justify-end py-4 px-4 bg-white dark:bg-gray-800 rounded-tl-lg rounded-tr-lg">
+      <div className="flex flex-wrap items-center justify-end py-4 bg-white dark:bg-gray-800 rounded-tl-lg rounded-tr-lg mx-20">
         <div className="relative p-2 box-border">
           <select
             className="block p-2 px-3 text-sm text-gray-500 border border-gray-300 placeholder-gray-400 focus:outline-none rounded-lg w-full bg-gray-50 focus:ring-gray-500 focus:border-gray-500 box-border"
@@ -109,15 +126,14 @@ export default function Home() {
         <div className="relative p-2 box-border">
           <select
             className="block p-2 px-3 text-sm text-gray-500 border border-gray-300 placeholder-gray-400 focus:outline-none rounded-lg w-full bg-gray-50 focus:ring-gray-500 focus:border-gray-500 box-border"
-            value={gender}
+            value={available}
             onChange={(e) => {
-              setGender(e.target.value);
+              setAvailable(e.target.value);
             }}
           >
-            <option value="">Available</option>
-            <option value="Male">Available</option>
-            <option value="Female">Not available</option>
-            <option value="Agender">Agender</option>
+            <option value="">All avab/unavab</option>
+            <option value="1">Available</option>
+            <option value="0">Not available</option>
           </select>
         </div>
 
@@ -162,7 +178,7 @@ export default function Home() {
         currentPage={currentPage}
         usersData={usersData}
         setPage={setPage}
-        usersDetailsData={usersDetailsData}
+        usersDataCount={usersDataCount}
       />
     </>
   );

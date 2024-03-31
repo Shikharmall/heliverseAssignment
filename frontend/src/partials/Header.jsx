@@ -49,7 +49,7 @@ export default function Header() {
   };
 
   return (
-    <div className="sticky top-0 z-40 w-full bg-white">
+    <div className="sticky top-0 z-40 w-full bg-white shadow-sm">
       <div className=" flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0 mx-20">
         <div className="flex items-center justify-start gap-x-2 sm:gap-x-0">
           <button
@@ -94,7 +94,7 @@ export default function Header() {
                     className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
                   >
                     <svg
-                      width ="40px"
+                      width="40px"
                       height="40px"
                       viewBox="0 0 1024 1024"
                       className="icon"

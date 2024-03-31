@@ -11,6 +11,10 @@ user_route.use(bodyParser.urlencoded({ extended: true }));
 
 user_route.get("/users", userController.getAllUser);
 
+// Retrieve all users count with pagination support & filter.
+
+user_route.get("/usersCount", userController.getAllUserCount);
+
 // Retrieve all users without pagination support & filter.
 
 user_route.get("/usersAll", userController.getAllUserDetails);
