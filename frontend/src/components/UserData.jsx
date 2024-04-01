@@ -1,6 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToTeamActions } from "../redux/actions";
 
 export default function UserData({ usersData }) {
+  const [isLogin, setIsLogin] = useState(false);
+  const teams = useSelector((state) => state.teams);
+  const [options, setOptions] = useState("");
+  const [userNamee, setUserNamee] = useState({});
+  const dispatch = useDispatch();
+
+  const submitHandler = () => {
+    try {
+      dispatch(addToTeamActions(options, userNamee));
+      setOptions("");
+      setUserNamee("");
+      setIsLogin(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full px-20">
@@ -27,9 +46,7 @@ export default function UserData({ usersData }) {
                       </p>
                     </div>
                   </div>
-                  <p className="mt-2 text-sm text-gray-800">
-                    {item.email}
-                  </p>
+                  <p className="mt-2 text-sm text-gray-800">{item.email}</p>
                 </div>
 
                 <div className="grid grid-cols-2 grid-rows-2 gap-4 mt-8">
@@ -74,7 +91,9 @@ export default function UserData({ usersData }) {
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <span className="mt-2 xl:mt-0 line-clamp-1">{item.domain}</span>
+                    <span className="mt-2 xl:mt-0 line-clamp-1">
+                      {item.domain}
+                    </span>
                   </p>
                   <p className="inline-flex flex-col xl:flex-row xl:items-center text-white">
                     {item.available ? (
@@ -92,6 +111,10 @@ export default function UserData({ usersData }) {
                       <span
                         className="mt-2 xl:mt-0 bg-blue-500 px-4 rounded-lg py-2 cursor-pointer"
                         title="Click to add user to created team."
+                        onClick={() => {
+                          setIsLogin(true);
+                          setUserNamee(item.first_name + " " + item.last_name);
+                        }}
                       >
                         Add to team
                       </span>
@@ -116,6 +139,91 @@ export default function UserData({ usersData }) {
           <p>No users found.</p>
         </div>
       )}
+
+      {isLogin ? (
+        <div className={`fixed inset-0 z-50 flex justify-center items-center`}>
+          <div
+            data-state="open"
+            className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm transition-all duration-100 data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:fade-in"
+            data-aria-hidden="true"
+            aria-hidden="true"
+            style={{ pointerEvents: "auto" }}
+          ></div>
+          <div
+            role="dialog"
+            id="radix-:r3:"
+            aria-describedby="radix-:r5:"
+            aria-labelledby="radix-:r4:"
+            data-state="open"
+            className={`fixed z-50 gap-4 rounded-b-lg border bg-background p-6 shadow-lg animate-in data-[state=open]:fade-in-90 data-[state=open]:slide-in-from-bottom-10 sm:max-w-lg sm:rounded-lg sm:zoom-in-90 data-[state=open]:sm:slide-in-from-bottom-0 h-screen w-screen sm:h-auto sm:w-auto md:mt-20 flex flex-col items-center justify-center bg-white transition-transform transform ${
+              isLogin ? "scale-100" : "scale-0"
+            }`}
+            tabindex="-1"
+            style={{ pointerEvents: "auto" }}
+          >
+            <button
+              type="button"
+              className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
+              onClick={() => setIsLogin(false)}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-4 w-4"
+              >
+                <path d="M18 6 6 18"></path>
+                <path d="m6 6 12 12"></path>
+              </svg>
+              <span className="sr-only">Close</span>
+            </button>
+            <br />
+            <div className="flex-col space-y-1.5 text-center sm:text-left flex items-center justify-center gap-y-3">
+              <select
+                className="block p-2 px-3 text-sm text-gray-500 border border-gray-300 placeholder-gray-400 focus:outline-none rounded-lg w-full bg-gray-50 focus:ring-gray-500 focus:border-gray-500 box-border"
+                value={options}
+                onChange={(e) => {
+                  //setOptions(e.target.value);
+                  setOptions(JSON.parse(e.target.value));
+                }}
+              >
+                <option value="" disabled selected>
+                  Select Team
+                </option>
+                {/*<option value={{teamId: item.teamId, teamName: item.teamName}} key={index}>*/}
+                {teams &&
+                  teams.map((item, index) => (
+                    <option
+                      value={JSON.stringify({
+                        teamId: item.teamId,
+                        teamName: item.teamName,
+                      })}
+                      key={index}
+                    >
+                      {item.teamName}
+                    </option>
+                  ))}
+              </select>
+
+              <button
+                className="block p-2 px-3 text-sm text-gray-500 border border-gray-300 placeholder-gray-400 focus:outline-none rounded-lg w-full bg-gray-50 focus:ring-gray-500 focus:border-gray-500 box-border"
+                disabled={options === "" ? true : false}
+                onClick={() => {
+                  submitHandler();
+                }}
+              >
+                Add to team
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </>
   );
 }

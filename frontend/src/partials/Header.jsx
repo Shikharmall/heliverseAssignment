@@ -204,7 +204,7 @@ export default function Header() {
               aria-labelledby="radix-:R5b6t5aH1:"
               data-state="open"
               className="fixed z-50 gap-4 bg-background bg-white p-6 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500 inset-y-0 left-0 h-full border-r data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-sm w-[70%] flex flex-col"
-              tabindex="-1"
+              tabIndex="-1"
               //style="pointer-events: auto;"
             >
               <div className="flex flex-col space-y-2 text-center sm:text-left">
@@ -353,7 +353,7 @@ export default function Header() {
             className={`fixed z-50 gap-4 rounded-b-lg border bg-background p-6 shadow-lg animate-in data-[state=open]:fade-in-90 data-[state=open]:slide-in-from-bottom-10 sm:max-w-lg sm:rounded-lg sm:zoom-in-90 data-[state=open]:sm:slide-in-from-bottom-0 h-screen w-screen sm:h-auto sm:w-auto md:mt-20 flex flex-col items-center justify-center bg-white transition-transform transform ${
               isLogin ? "scale-100" : "scale-0"
             }`}
-            tabindex="-1"
+            tabIndex="-1"
             style={{ pointerEvents: "auto" }}
           >
             <div className="flex-col space-y-1.5 text-center sm:text-left flex items-center justify-center gap-y-3">

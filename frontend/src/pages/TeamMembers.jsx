@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Header from "../partials/Header";
-
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function TeamMembers() {
   const [uniqueTeam, setUniqueTeam] = useState([]);
-  const teamMembers = useSelector((state) => state.TeamMembers);
+  const [uniqueMembers, setUniqueMembers] = useState([]);
   const teams = useSelector((state) => state.teams);
+  const teamMembers = useSelector((state) => state.teamMembers);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,14 +19,13 @@ export default function TeamMembers() {
 
   const { id } = useParams();
 
-  const uniqueMembers = teamMembers?.filter(
-    (item) => item.teamId === parseInt(id)
-  );
-
   useEffect(() => {
     if (id) {
       const uqTeam = teams.filter((item) => item.teamId === parseInt(id));
-      console.log(uqTeam);
+      const uqMembers = teamMembers.filter(
+        (item) => item?.team?.teamId === parseInt(id)
+      );
+      setUniqueMembers(uqMembers);
       setUniqueTeam(uqTeam);
     }
   }, [id]);

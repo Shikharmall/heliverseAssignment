@@ -5,7 +5,10 @@ const initialState = {
   teamMembers: [],
 };
 
+//console.log(initialState);
+
 const teamReducer = (state = initialState, action) => {
+  //console.log(action);
   switch (action.type) {
     case createTeam:
       return {
@@ -16,6 +19,7 @@ const teamReducer = (state = initialState, action) => {
         ],
       };
     case addToTeam:
+      console.log();
       return {
         ...state,
         teamMembers: [...state.teamMembers, action.payload],

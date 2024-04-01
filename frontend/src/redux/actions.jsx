@@ -10,14 +10,13 @@ export const createTeamActions = (teamName, teamId) => {
     },
   };
 };
-export const addToTeamActions = (teamName, teamId, userName, userLogo) => {
+export const addToTeamActions = (team, userName) => {
   return {
     type: addToTeam,
     payload: {
-      teamName: teamName,
-      teamId: teamId,
+      //teamName: teamName,
+      team: team,
       userName: userName,
-      userLogo: userLogo,
       timestamp: new Date().toLocaleString(),
     },
   };
