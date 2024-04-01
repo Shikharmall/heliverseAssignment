@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Teams from "./pages/Teams";
+import TeamMembers from "./pages/TeamMembers";
 
 function App() {
   const location = useLocation();
