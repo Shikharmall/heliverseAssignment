@@ -10,7 +10,10 @@ const teamReducer = (state = initialState, action) => {
     case createTeam:
       return {
         ...state,
-        teams: [...state.teams, action.payload],
+        teams: [
+          ...state.teams,
+          { teamName: action.payload.teamName, teamId: state.teams.length + 1 },
+        ],
       };
     case addToTeam:
       return {

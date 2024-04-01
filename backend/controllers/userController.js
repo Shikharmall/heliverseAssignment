@@ -1,4 +1,5 @@
 const User = require("../models/userModel");
+const { search } = require("../routes/userRoute");
 
 //Create a new user.
 
@@ -70,7 +71,7 @@ const getUser = async (req, res) => {
 const getAllUser = async (req, res) => {
   const page = req.query.page;
   const limit = 20;
-  const { domain, gender, available } = req.query; // Assuming you have parameters parameter1 and parameter2
+  const { domain, gender, available, search } = req.query; // Assuming you have parameters parameter1 and parameter2
 
   const filter = {};
 
@@ -90,15 +91,24 @@ const getAllUser = async (req, res) => {
     filter.available = available;
   }
 
+  if (search) {
+    filter.first_name = search;
+  }
+
+  if (search) {
+    filter.last_name = search;
+  }
+
   try {
     const userData = await User.find(filter)
       .limit(limit)
       .skip((page - 1) * limit)
       .exec();
-    const userDataCount = await User.find(filter)
-      .countDocuments();
+    const userDataCount = await User.find(filter).countDocuments();
 
-    return res.status(200).json({ status: "success", data: userData , count: userDataCount });
+    return res
+      .status(200)
+      .json({ status: "success", data: userData, count: userDataCount });
   } catch (error) {
     res.status(500).json({ status: "failed", message: error.message });
   }

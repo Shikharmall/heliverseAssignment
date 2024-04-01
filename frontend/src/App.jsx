@@ -18,6 +18,7 @@ function App() {
     <Routes>
       <Route exact path="/" element={<Home />} />
       <Route exact path="/teams" element={<Teams />} />
+      <Route exact path="/teamMembers/:id" element={<TeamMembers />} />
     </Routes>
   );
 }

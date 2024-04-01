@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import Header from "../partials/Header";
 import { useDispatch } from "react-redux";
-//import { addToTeamActions } from "../redux/actions";
 import { createTeamActions } from "../redux/actions";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
-export default function () {
+export default function Teams() {
   const dispatch = useDispatch();
   const teams = useSelector((state) => state.teams);
-  console.log(teams);
+  //console.log(teams);
 
   const [teamName, setTeamName] = useState("");
   const submitHandler = () => {
@@ -38,14 +37,15 @@ export default function () {
           onClick={() => {
             submitHandler();
           }}
+          disabled={teamName === "" ? true : false}
         >
           Add Team
         </button>
       </div>
 
-      <div className="w-full text-sm text-left text-gray-500 dark:text-gray-400 overflow-x-auto">
-        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+      <div className="w-full text-sm text-left text-gray-500  overflow-x-auto flex justify-center">
+        <table className="w-full md:w-1/2 lg:w-1/2 text-sm text-left text-gray-500 m-2">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-100">
             <tr>
               <th scope="col" className="p-4">
                 <div className="flex items-center">
@@ -115,13 +115,13 @@ export default function () {
               : null}
           </tbody>
         </table>
-        <div>
-          {teams && teams.length > 0 ? null : (
-            <div className="flex items-center justify-center m-2">
-              <p>No teams found.</p>
-            </div>
-          )}
-        </div>
+      </div>
+      <div>
+        {teams && teams.length > 0 ? null : (
+          <div className="flex items-center justify-center m-2">
+            <p>No teams found.</p>
+          </div>
+        )}
       </div>
     </>
   );
