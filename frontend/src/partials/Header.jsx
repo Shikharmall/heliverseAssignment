@@ -3,25 +3,6 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   const [isHamburger, setIsHamburger] = useState(false);
-  const [isLogin, setIsLogin] = useState(false);
-  const [isShow0, setIsShow0] = useState(false);
-  const [isShow1, setIsShow1] = useState(false);
-
-  const handleMouseOver = () => {
-    setIsShow0(true);
-  };
-
-  const handleMouseOut = () => {
-    setIsShow0(false);
-  };
-
-  const handleMouseOver1 = () => {
-    setIsShow1(true);
-  };
-
-  const handleMouseOut1 = () => {
-    setIsShow1(false);
-  };
 
   const [showButton, setShowButton] = useState(false);
 
@@ -335,156 +316,26 @@ export default function Header() {
         ) : null}
       </div>
 
-      {isLogin ? (
-        <div className={`fixed inset-0 z-50 flex justify-center items-center`}>
-          <div
-            data-state="open"
-            className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm transition-all duration-100 data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:fade-in"
-            data-aria-hidden="true"
-            aria-hidden="true"
-            style={{ pointerEvents: "auto" }}
-          ></div>
-          <div
-            role="dialog"
-            id="radix-:r3:"
-            aria-describedby="radix-:r5:"
-            aria-labelledby="radix-:r4:"
-            data-state="open"
-            className={`fixed z-50 gap-4 rounded-b-lg border bg-background p-6 shadow-lg animate-in data-[state=open]:fade-in-90 data-[state=open]:slide-in-from-bottom-10 sm:max-w-lg sm:rounded-lg sm:zoom-in-90 data-[state=open]:sm:slide-in-from-bottom-0 h-screen w-screen sm:h-auto sm:w-auto md:mt-20 flex flex-col items-center justify-center bg-white transition-transform transform ${
-              isLogin ? "scale-100" : "scale-0"
-            }`}
-            tabIndex="-1"
-            style={{ pointerEvents: "auto" }}
+      {showButton && (
+        <button
+          className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 py-2 fixed bottom-4 right-4 z-50 border px-2 shadow-lg opacity-100  bg-white"
+          onClick={moveTop}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="w-6 h-6"
           >
-            <div className="flex-col space-y-1.5 text-center sm:text-left flex items-center justify-center gap-y-3">
-              <img
-                alt="Zap"
-                loading="lazy"
-                width="100"
-                height="100"
-                decoding="async"
-                data-nimg="1"
-                className="rounded-full"
-                src="https://t4.rbxcdn.com/30DAY-AvatarHeadshot-57748977B3F40C1CE63A075CD52FBEE4-Png"
-                //style="color: transparent;"
-                style={{ color: "transparent" }}
-              />
-              <h2
-                id="radix-:r4:"
-                className="font-semibold tracking-tight text-3xl mt-auto text-center"
-              >
-                Sign in to Zap
-              </h2>
-              <p
-                id="radix-:r5:"
-                className="text-sm text-muted-foreground text-center"
-              >
-                Zap uses your Roblox username, ID, and avatar to create your
-                profile. We will never ask for your password.
-              </p>
-            </div>
-            <div className="flex flex-col gap-y-6 w-full">
-              <div
-                data-orientation="horizontal"
-                role="none"
-                className="shrink-0 bg-border h-[1px] w-full !mt-4"
-              ></div>
-              <div className="flex flex-col justify-start space-y-2">
-                <div className="flex items-center space-x-2">
-                  <button
-                    type="button"
-                    role="checkbox"
-                    aria-checked="false"
-                    data-state="unchecked"
-                    value="on"
-                    className="peer h-4 w-4 shrink-0 rounded-sm border border-black ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
-                    id="13-plus"
-                  ></button>
-                  <label
-                    for="13-plus"
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                  >
-                    I am 13 years of age or older
-                  </label>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <button
-                    type="button"
-                    role="checkbox"
-                    aria-checked="false"
-                    data-state="unchecked"
-                    value="on"
-                    className="peer h-4 w-4 shrink-0 rounded-sm border border-black ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
-                    id="tos"
-                  ></button>
-                  <label
-                    for="tos"
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                  >
-                    I agree to the{" "}
-                    <a
-                      href="https://zap.gg/terms"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-blue-500"
-                    >
-                      Terms of Service
-                    </a>
-                  </label>
-                </div>
-              </div>
-              <div className="text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background h-9 px-3 rounded-md flex items-center justify-center space-x-2 py-6 hover:cursor-not-allowed bg-muted text-muted-foreground hover:bg-muted bg-[#f1f5f9]">
-                <span>Link Roblox Account</span>
-              </div>
-            </div>
-            <button
-              type="button"
-              className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
-              onClick={() => setIsLogin(false)}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-4 w-4"
-              >
-                <path d="M18 6 6 18"></path>
-                <path d="m6 6 12 12"></path>
-              </svg>
-              <span className="sr-only">Close</span>
-            </button>
-          </div>
-        </div>
-      ) : (
-        <>
-          {showButton && (
-            <button
-              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 py-2 fixed bottom-4 right-4 z-50 border px-2 shadow-lg opacity-100  bg-white"
-              onClick={moveTop}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-6 h-6"
-              >
-                <polyline points="18 15 12 9 6 15"></polyline>
-              </svg>
-            </button>
-          )}
-        </>
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </button>
       )}
     </div>
   );

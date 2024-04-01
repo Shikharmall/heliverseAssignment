@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToTeamActions } from "../redux/actions";
 
 export default function UserData({ usersData }) {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isOpen, setisOpen] = useState(false);
   const teams = useSelector((state) => state.teams);
   const [options, setOptions] = useState("");
   const [userNamee, setUserNamee] = useState({});
@@ -14,7 +14,7 @@ export default function UserData({ usersData }) {
       dispatch(addToTeamActions(options, userNamee));
       setOptions("");
       setUserNamee("");
-      setIsLogin(false);
+      setisOpen(false);
     } catch (error) {
       console.log(error);
     }
@@ -112,7 +112,7 @@ export default function UserData({ usersData }) {
                         className="mt-2 xl:mt-0 bg-blue-500 px-4 rounded-lg py-2 cursor-pointer"
                         title="Click to add user to created team."
                         onClick={() => {
-                          setIsLogin(true);
+                          setisOpen(true);
                           setUserNamee(item.first_name + " " + item.last_name);
                         }}
                       >
@@ -140,7 +140,7 @@ export default function UserData({ usersData }) {
         </div>
       )}
 
-      {isLogin ? (
+      {isOpen ? (
         <div className={`fixed inset-0 z-50 flex justify-center items-center`}>
           <div
             data-state="open"
@@ -156,7 +156,7 @@ export default function UserData({ usersData }) {
             aria-labelledby="radix-:r4:"
             data-state="open"
             className={`fixed z-50 gap-4 rounded-b-lg border bg-background p-6 shadow-lg animate-in data-[state=open]:fade-in-90 data-[state=open]:slide-in-from-bottom-10 sm:max-w-lg sm:rounded-lg sm:zoom-in-90 data-[state=open]:sm:slide-in-from-bottom-0 h-screen w-screen sm:h-auto sm:w-auto md:mt-20 flex flex-col items-center justify-center bg-white transition-transform transform ${
-              isLogin ? "scale-100" : "scale-0"
+              isOpen ? "scale-100" : "scale-0"
             }`}
             tabindex="-1"
             style={{ pointerEvents: "auto" }}
@@ -164,7 +164,7 @@ export default function UserData({ usersData }) {
             <button
               type="button"
               className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
-              onClick={() => setIsLogin(false)}
+              onClick={() => setisOpen(false)}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
