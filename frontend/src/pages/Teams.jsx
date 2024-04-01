@@ -22,7 +22,7 @@ export default function Teams() {
   return (
     <>
       <Header />
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center flex-col sm:flex-row">
         <input
           type="text"
           value={teamName}

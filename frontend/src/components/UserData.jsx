@@ -22,7 +22,7 @@ export default function UserData({ usersData }) {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full px-20">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full px-3 sm:px-20 ">
         {usersData.map((item, index) => (
           <div className="relative mx-auto w-full" key={item.id}>
             <a

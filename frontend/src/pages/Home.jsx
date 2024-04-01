@@ -70,8 +70,8 @@ export default function Home() {
     <>
       <Header />
 
-      <div className="flex flex-wrap items-center justify-end py-4 bg-white dark:bg-gray-800 rounded-tl-lg rounded-tr-lg mx-20">
-        <div className="relative p-2 box-border">
+      <div className="flex flex-wrap items-center flex-col md:flex-row justify-end py-4 bg-white dark:bg-gray-800 rounded-tl-lg rounded-tr-lg mx-3 sm:mx-20">
+        <div className="relative p-2 box-border w-full md:w-auto">
           <select
             className="block p-2 px-3 text-sm text-gray-500 border border-gray-300 placeholder-gray-400 focus:outline-none rounded-lg w-full bg-gray-50 focus:ring-gray-500 focus:border-gray-500 box-border"
             value={domain}
@@ -91,7 +91,7 @@ export default function Home() {
           </select>
         </div>
 
-        <div className="relative p-2 box-border">
+        <div className="relative p-2 box-border w-full md:w-auto">
           <select
             className="block p-2 px-3 text-sm text-gray-500 border border-gray-300 placeholder-gray-400 focus:outline-none rounded-lg w-full bg-gray-50 focus:ring-gray-500 focus:border-gray-500 box-border"
             value={gender}
@@ -110,7 +110,7 @@ export default function Home() {
           </select>
         </div>
 
-        <div className="relative p-2 box-border">
+        <div className="relative p-2 box-border w-full md:w-auto">
           <select
             className="block p-2 px-3 text-sm text-gray-500 border border-gray-300 placeholder-gray-400 focus:outline-none rounded-lg w-full bg-gray-50 focus:ring-gray-500 focus:border-gray-500 box-border"
             value={available}
@@ -125,7 +125,7 @@ export default function Home() {
           </select>
         </div>
 
-        <div className="relative p-2 box-border">
+        <div className="relative p-2 box-border w-full lg:w-auto">
           <div className="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none">
             <svg
               className="w-4 h-4 text-gray-500 dark:text-gray-400"
