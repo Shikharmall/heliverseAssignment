@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Pagination({ currentPage, setPage, usersDataCount }) {
-  console.log(usersDataCount);
+  
   return (
     <>
       <div className="flex justify-end px-20 my-6">

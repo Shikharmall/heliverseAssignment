@@ -3,10 +3,10 @@ import { API_URL_BASE } from "../utils/apiURL";
 
 // API for getting all users details with pagination and filter
 
-export const getAllUsersAPI = async (page, domain, gender, available) => {
+export const getAllUsersAPI = async (page, domain, gender, available,search) => {
   try {
     let result = await axios(
-      `${API_URL_BASE}/api/users?page=${page}&domain=${domain}&gender=${gender}&available=${available}`,
+      `${API_URL_BASE}/api/users?page=${page}&domain=${domain}&gender=${gender}&available=${available}&search=${search}`,
       {
         method: "GET",
         //withCredentials: true,

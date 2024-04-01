@@ -17,10 +17,10 @@ export default function Home() {
   const [available, setAvailable] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const getAllUsersFunc = async (page, domain, gender, available) => {
+  const getAllUsersFunc = async (page, domain, gender, available,search) => {
     setLoading(true);
     try {
-      const response = await getAllUsersAPI(page, domain, gender, available);
+      const response = await getAllUsersAPI(page, domain, gender, available , search);
 
       if (response.status === 200) {
         setLoading(false);
@@ -55,8 +55,8 @@ export default function Home() {
   };
 
   useEffect(() => {
-    getAllUsersFunc(currentPage, domain, gender, available);
-  }, [currentPage, domain, gender, available]);
+    getAllUsersFunc(currentPage, domain, gender, available, search);
+  }, [currentPage, domain, gender, available, search]);
 
   useEffect(() => {
     getAllUsersDetailsFunc();
@@ -148,8 +148,10 @@ export default function Home() {
             id="table-search-users"
             className="block p-2 pl-10 text-sm text-gray-500 border border-gray-300 placeholder-gray-400 focus:outline-none rounded-lg w-full bg-gray-50 focus:ring-gray-500 focus:border-gray-500 box-border"
             placeholder="Search for users"
-            //value={search}
-            //onChange={filterhoadata}
+            value={search}
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
           />
         </div>
       </div>
