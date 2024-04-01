@@ -21,7 +21,7 @@ export default function Home() {
     setLoading(true);
     try {
       const response = await getAllUsersAPI(page, domain, gender, available , search);
-
+      console.log(response);
       if (response.status === 200) {
         setLoading(false);
         setUsersData(response?.data?.data);

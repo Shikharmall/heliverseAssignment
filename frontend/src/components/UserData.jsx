@@ -155,7 +155,7 @@ export default function UserData({ usersData }) {
             aria-describedby="radix-:r5:"
             aria-labelledby="radix-:r4:"
             data-state="open"
-            className={`fixed z-50 gap-4 rounded-b-lg border bg-background p-6 shadow-lg animate-in data-[state=open]:fade-in-90 data-[state=open]:slide-in-from-bottom-10 sm:max-w-lg sm:rounded-lg sm:zoom-in-90 data-[state=open]:sm:slide-in-from-bottom-0 h-screen w-screen sm:h-auto sm:w-auto md:mt-20 flex flex-col items-center justify-center bg-white transition-transform transform ${
+            className={`fixed z-50 gap-4 rounded-b-lg border bg-background p-6 shadow-lg animate-in data-[state=open]:fade-in-90 data-[state=open]:slide-in-from-bottom-10 sm:max-w-lg sm:rounded-lg sm:zoom-in-90 data-[state=open]:sm:slide-in-from-bottom-0 h-auto w-[200px] md:w-[500px] md:mt-20 flex flex-col items-center justify-center bg-white transition-transform transform ${
               isOpen ? "scale-100" : "scale-0"
             }`}
             tabindex="-1"
@@ -184,7 +184,7 @@ export default function UserData({ usersData }) {
               <span className="sr-only">Close</span>
             </button>
             <br />
-            <div className="flex-col space-y-1.5 text-center sm:text-left flex items-center justify-center gap-y-3">
+            <div className="flex-col space-y-1.5 text-center sm:text-left flex items-center justify-center gap-y-3 w-full">
               <select
                 className="block p-2 px-3 text-sm text-gray-500 border border-gray-300 placeholder-gray-400 focus:outline-none rounded-lg w-full bg-gray-50 focus:ring-gray-500 focus:border-gray-500 box-border"
                 value={options}

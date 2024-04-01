@@ -29,6 +29,7 @@ const cors = require("cors");
 
 let allowedOrigins = [
   "http://localhost:5173",
+  "https://heliverse-assignment-omega.vercel.app"
 ];
 
 app.use(

@@ -69,37 +69,33 @@ const getUser = async (req, res) => {
 // Retrieve all users with pagination support & filter.
 
 const getAllUser = async (req, res) => {
-  const page = req.query.page;
-  const limit = 20;
-  const { domain, gender, available, search } = req.query; // Assuming you have parameters parameter1 and parameter2
-
-  const filter = {};
-
-  if (domain) {
-    filter.domain = domain;
-  }
-
-  if (gender) {
-    filter.gender = gender;
-  }
-
-  if (available) {
-    filter.available = available;
-  }
-
-  if (available) {
-    filter.available = available;
-  }
-
-  if (search) {
-    filter.first_name = search;
-  }
-
-  if (search) {
-    filter.last_name = search;
-  }
-
   try {
+    const page = req.query.page;
+    const limit = 20;
+    const { domain, gender, available, search } = req.query; // Assuming you have parameters parameter1 and parameter2
+
+    const filter = {};
+
+    if (domain) {
+      filter.domain = { $regex: domain, $options: "i" }; // Case-insensitive regex match for domain
+    }
+
+    if (gender) {
+      filter.gender = { $regex: gender, $options: "i" }; // Case-insensitive regex match for gender
+    }
+
+    if (available) {
+      filter.available = available;
+    }
+
+    if (search) {
+      const searchRegex = new RegExp(search, "i");
+      filter.$or = [
+        { first_name: { $regex: searchRegex } },
+        { last_name: { $regex: searchRegex } },
+      ];
+    }
+
     const userData = await User.find(filter)
       .limit(limit)
       .skip((page - 1) * limit)
